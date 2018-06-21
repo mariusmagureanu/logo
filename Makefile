@@ -2,6 +2,12 @@ PACKAGES = \
 	github.com/mariusmagureanu/logo/tests \
 	github.com/mariusmagureanu/logo 	
 
+build:
+	GOOS=linux GOARCH=amd64 go build  -ldflags "-s -w"
+
+osxbuild:
+	GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w"
+
 test:
 	@for pkg in ${PACKAGES}; do \
 		echo ; \
