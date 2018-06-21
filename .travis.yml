@@ -1,13 +1,18 @@
+sudo: false
+
 language: go
 
 go:
-  - 1.10
+  - 1.9
   - tip
 
 notifications:
   email: false
 
+before_script:
+  - go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+
 script:
   - golangci-lint run 
-  - make build
   - make test
+  - make build
