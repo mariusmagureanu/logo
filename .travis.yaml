@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - 1.10
+  - tip
+
+notifications:
+  email: false
+
+script:
+  - golangci-lint run 
+  - make build
+  - make test
